@@ -161,7 +161,11 @@ MainView.prototype.setPrimaryView = function (id, secondaryViewId) {
     // Move options below the upper-container
     this.getElementById('lower-container').appendChild(this.getElementById('options'));
   } else if (id === PaymentOptionsView.ID) {
-    this.setPrimaryView('card');
+    if (document.body.clientWidth > 800) {
+      this.setPrimaryView('card');
+    } else {
+      this.setPrimaryView('paypal');
+    }
     //this.hideToggle();
   }
 
